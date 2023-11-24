@@ -7,18 +7,18 @@ public class AuthenticityCounter : MonoBehaviour
 {
     [SerializeField][Range(0,1)] private float value = 1f;
 
-    Transform scaler;
+    RectTransform scaler;
 
     // Start is called before the first frame update
     void Start()
     {
-        scaler = transform.Find("Foreground");
+        scaler = (RectTransform)GetComponent<RectTransform>().Find("Foreground");
     }
 
     // Update is called once per frame
     void Update()
     {
-        scaler.transform.localScale = new Vector3(value, 1, 1);
+        scaler.localScale = new Vector3(value, 1, 1);
     }
 
     public void SetValue(float value)
