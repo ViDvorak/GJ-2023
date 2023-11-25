@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2097066719466826163}
   - component: {fileID: 6170321267342940495}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7324815576613371462}
   - component: {fileID: 2990483489253729765}
   - component: {fileID: 8874956759154125665}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Alien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,9 +189,9 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0.11}
+  m_Size: {x: 2.58, y: 1.8373994}
+  m_Direction: 1
