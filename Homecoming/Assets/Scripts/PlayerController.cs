@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     /// Flags bitset which contains player items.
     /// </summary>
     private Item items = Item.None;
+    private Vector3 playerScale;
 
     /// <summary>
     /// Speed of the player movement.
@@ -23,24 +24,25 @@ public class PlayerController : MonoBehaviour
 
     public float MaxDistanceToHide = 4;
 
-    private void Awake()
+    private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         playerInputActions = new PlayerInputActions();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
+        playerScale = transform.localScale;
 
         playerInputActions.Enable();
-    }
-
-    private void Start()
-    {
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
     }
 
     private void Update()
     {
         Vector2 direction = playerInputActions.Player.Movement.ReadValue<Vector2>();
-
         rigidbody.AddForce(MovementSpeed * Time.deltaTime * direction);
+
+        float xScaleModifier = direction.x >= 0.0f ? 1.0f : -1.0f;
+        Vector2 scale = playerScale;
+        scale.x *= xScaleModifier;
+        transform.localScale = scale;
     }
 
     public void Hide(GameObject objectToHideIn)
