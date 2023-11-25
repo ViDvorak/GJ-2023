@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &845547862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822388460634501093, guid: 867768b08fa48564484f97a83c3b0fa8, type: 3}
+  m_PrefabInstance: {fileID: 4958281191787450003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &983071498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -201,7 +206,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7066941132983029476, guid: 867768b08fa48564484f97a83c3b0fa8, type: 3}
   m_PrefabInstance: {fileID: 4958281191787450003}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 845547862}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 463605ea3c911db45ace3ffeb51e5dd6, type: 3}
@@ -235,6 +240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 6996106836441081762, guid: 8f47a2dc3af027447b38b46b2fddebaf, type: 3}
+      propertyPath: Area
+      value: 
+      objectReference: {fileID: 845547862}
     - target: {fileID: 6996106836441081762, guid: 8f47a2dc3af027447b38b46b2fddebaf, type: 3}
       propertyPath: <Target>k__BackingField
       value: 
