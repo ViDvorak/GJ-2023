@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementDirection: 0
-  MovementSpeed: 0
+  MovementSpeed: 300
 --- !u!50 &2990483489253729765
 Rigidbody2D:
   serializedVersion: 4
