@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="item">item to pick up.</param>
     public void PickUpItem(Item item)
     {
-        Debug.Assert(!HasItem(item));
+        Debug.Assert(!HasItems(item));
 
         // TODO: make some change based on picked item (for example change appearance)
 
@@ -76,9 +76,9 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Determine if player has specified item.
+    /// Determine if player has specified items.
     /// </summary>
-    /// <param name="item">Specified item.</param>
-    public bool HasItem(Item item)
-        => (items & item) > Item.None;
+    /// <param name="items">Specified items.</param>
+    public bool HasItems(Item items)
+        => (this.items & items) > Item.None;
 }
