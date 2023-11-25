@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class BushInteractionHandeling : MonoBehaviour
 {
-
     private PlayerController playerController;
     private bool isIntersectingHidableObject = false;
 

@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerScale;
     private bool leafVisible = false;
 
-    private GameObject playerSpriteGameObject;
+    public GameObject playerSpriteGameObject;
     private GameObject playerHatGameObject;
     private GameObject playerScarfGameObject;
     private GameObject playerLeafRightGameObject;
@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         playerInputActions = new PlayerInputActions();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
         playerScale = transform.localScale;
 
         playerHatGameObject = transform.Find("Sprites").Find("Hat").gameObject;
@@ -84,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     public void Hide(GameObject objectToHideIn)
     {
-        spriteRenderer.enabled = false;
+        playerSpriteGameObject.SetActive(false);
         colliderComponent.enabled = false;
         isPlayerHidden = true;
 
@@ -93,7 +92,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Unhide()
     {
-        spriteRenderer.enabled = true;
+        playerSpriteGameObject.SetActive(true);
         colliderComponent.enabled = true;
         isPlayerHidden = false;
 
