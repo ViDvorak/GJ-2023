@@ -1,6 +1,4 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.AI;
 
 /// <summary>
 /// Script for controlling the player.
@@ -13,6 +11,10 @@ public class PlayerController : MonoBehaviour
     private PlayerInputActions playerInputActions;
     private new Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
+    /// <summary>
+    /// Flags bitset which contains player items.
+    /// </summary>
+    private Item items = Item.None;
 
     /// <summary>
     /// Speed of the player movement.
@@ -58,4 +60,25 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Pick up an item.
+    /// </summary>
+    /// <param name="item">item to pick up.</param>
+    public void PickUpItem(Item item)
+    {
+        Debug.Assert(!HasItem(item));
+
+        // TODO: make some change based on picked item (for example change appearance)
+
+        items |= item;
+        Debug.Log("Item picked up!");
+    }
+
+    /// <summary>
+    /// Determine if player has specified item.
+    /// </summary>
+    /// <param name="item">Specified item.</param>
+    public bool HasItem(Item item)
+        => (items & item) > Item.None;
 }
