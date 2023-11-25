@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class alienInteractionHandeling : MonoBehaviour
 {
+    public bool isInteractable = false;
     public GameObject text;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        text.SetActive(true);
+        if (isInteractable)
+        {
+            text.SetActive(true);
+
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        text.SetActive(false);
+        if (isInteractable)
+        {
+            text.SetActive(false);
+
+        }
     }
 }
