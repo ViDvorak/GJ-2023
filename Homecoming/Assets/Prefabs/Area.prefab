@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463605ea3c911db45ace3ffeb51e5dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaSize: {x: 50, y: 10}
+  AreaSize: {x: 50, y: 8}
   AreaColliderPrefab: {fileID: 7037645288284309107, guid: 40e0b9585519aed429571269899835d8, type: 3}

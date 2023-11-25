@@ -309,6 +309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Area
       objectReference: {fileID: 0}
+    - target: {fileID: 7066941132983029476, guid: 867768b08fa48564484f97a83c3b0fa8, type: 3}
+      propertyPath: AreaSize.y
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
