@@ -6,18 +6,31 @@ using UnityEngine;
 public class ItemController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
+    private GameObject tooltipTextGameObject;
 
     /// <summary>
     /// Which item this items's game object represent.
     /// </summary>
     public Item Item;
 
-    private void Awake()
+    private void Start()
     {
         Debug.Assert(Item != Item.None);
 
         playerInputActions = new PlayerInputActions();
         playerInputActions.Enable();
+
+        tooltipTextGameObject = transform.Find("Tooltip Text").gameObject;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        tooltipTextGameObject.SetActive(true);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        tooltipTextGameObject.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -28,6 +41,7 @@ public class ItemController : MonoBehaviour
             return;
 
         // TODO: show press 'E' to pick up item message
+
 
         if (playerInputActions.Player.Interaction.IsPressed())
         {
