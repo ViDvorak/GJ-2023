@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ff5b30f6ebd4d439fdf7474960edbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1851410918}
+  player: {fileID: 1851410921}
 --- !u!1001 &1798509049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -403,6 +403,10 @@ PrefabInstance:
     - target: {fileID: 7173201150795108345, guid: 94fdc0d13e92b9540972b0001560a437, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728965028162430833, guid: 94fdc0d13e92b9540972b0001560a437, type: 3}
+      propertyPath: MaxDistanceToHide
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8705186407199578658, guid: 94fdc0d13e92b9540972b0001560a437, type: 3}
       propertyPath: m_Layer
@@ -478,11 +482,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dbcfcf4db409ac4cb960dc7bb8ab4e4, type: 3}
---- !u!1 &1851410918 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9196078726855987739, guid: 94fdc0d13e92b9540972b0001560a437, type: 3}
+--- !u!114 &1851410921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7728965028162430833, guid: 94fdc0d13e92b9540972b0001560a437, type: 3}
   m_PrefabInstance: {fileID: 1798509049}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fc17307ce11c045a7e0fe3889b4d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

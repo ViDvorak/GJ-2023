@@ -1,4 +1,6 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
 /// Script for controlling the player.
@@ -10,11 +12,14 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private PlayerInputActions playerInputActions;
     private new Rigidbody2D rigidbody;
+    private SpriteRenderer spriteRenderer;
 
     /// <summary>
     /// Speed of the player movement.
     /// </summary>
     public float MovementSpeed;
+
+    public float MaxDistanceToHide = 4;
 
     private void Awake()
     {
@@ -24,10 +29,33 @@ public class PlayerController : MonoBehaviour
         playerInputActions.Enable();
     }
 
+    private void Start()
+    {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
+    }
+
     private void Update()
     {
         Vector2 direction = playerInputActions.Player.Movement.ReadValue<Vector2>();
 
         rigidbody.AddForce(MovementSpeed * Time.deltaTime * direction);
+    }
+
+    public void Hide(GameObject objectToHideIn)
+    {
+        if ((objectToHideIn.transform.position - transform.position).magnitude < MaxDistanceToHide)
+        {
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+            // forbid movement
+            if (!spriteRenderer.enabled)
+            {
+                rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+
+            }
+            else
+            {
+                rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
+        }
     }
 }
