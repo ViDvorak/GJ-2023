@@ -16,6 +16,13 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private Item items = Item.None;
     private Vector3 playerScale;
+    private bool leafVisible = false;
+
+    private GameObject playerSpriteGameObject;
+    private GameObject playerHatGameObject;
+    private GameObject playerScarfGameObject;
+    private GameObject playerLeafRightGameObject;
+    private GameObject playerLeafLeftGameObject;
 
     /// <summary>
     /// Speed of the player movement.
@@ -31,6 +38,16 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
         playerScale = transform.localScale;
 
+        playerHatGameObject = transform.Find("Sprites").Find("Hat").gameObject;
+        playerScarfGameObject = transform.Find("Sprites").Find("Scarf").gameObject;
+        playerLeafRightGameObject = transform.Find("Sprites").Find("Leaf Right").gameObject;
+        playerLeafLeftGameObject = transform.Find("Sprites").Find("Leaf Left").gameObject;
+
+        playerHatGameObject.GetComponent<Animator>().keepAnimatorStateOnDisable = true;
+        playerScarfGameObject.GetComponent<Animator>().keepAnimatorStateOnDisable = true;
+        playerLeafRightGameObject.GetComponent<Animator>().keepAnimatorStateOnDisable = true;
+        playerLeafLeftGameObject.GetComponent<Animator>().keepAnimatorStateOnDisable = true;
+
         playerInputActions.Enable();
     }
 
@@ -39,10 +56,20 @@ public class PlayerController : MonoBehaviour
         Vector2 direction = playerInputActions.Player.Movement.ReadValue<Vector2>();
         rigidbody.AddForce(MovementSpeed * Time.deltaTime * direction);
 
-        float xScaleModifier = direction.x >= 0.0f ? 1.0f : -1.0f;
+        bool movingRight = direction.x >= 0.0f;
+
+        float xScaleModifier = movingRight ? 1.0f : -1.0f;
         Vector2 scale = playerScale;
         scale.x *= xScaleModifier;
         transform.localScale = scale;
+
+        if (leafVisible)
+        {
+            playerLeafRightGameObject.transform.localScale = scale;
+            playerLeafLeftGameObject.transform.localScale = scale;
+            playerLeafRightGameObject.SetActive(movingRight);
+            playerLeafLeftGameObject.SetActive(!movingRight);
+        }
     }
 
     public void Hide(GameObject objectToHideIn)
@@ -71,10 +98,20 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Assert(!HasItems(item));
 
-        // TODO: make some change based on picked item (for example change appearance)
-
         items |= item;
-        Debug.Log("Item picked up!");
+
+        switch (item)
+        {
+            case Item.Hat:
+                playerHatGameObject.SetActive(true);
+                break;
+            case Item.Scarf:
+                playerScarfGameObject.SetActive(true);
+                break;
+            case Item.Leaf:
+                leafVisible = true;
+                break;
+        }
     }
 
     /// <summary>
