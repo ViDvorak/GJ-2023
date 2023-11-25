@@ -31,6 +31,9 @@ public class SceneChangerController : MonoBehaviour
         if (playerController == null)
             return;
 
+        Debug.Log(playerInputActions.Player.Interaction.IsPressed());
+        Debug.Log(playerController.HasItems(RequiredItems));
+
         if (playerInputActions.Player.Interaction.IsPressed() && playerController.HasItems(RequiredItems))
         {
             SceneManager.LoadScene(Scene.name);
