@@ -11,13 +11,13 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - Hidable In
-  - 
-  - 
-  - 
-  - 
   - Player
+  - Hidable In
+  - MovementLayer
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2628316549
+    locked: 0
+  - name: MovementLayer
+    uniqueID: 480431139
+    locked: 0
+  - name: Foreground
+    uniqueID: 421866479
     locked: 0
