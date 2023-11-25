@@ -1,7 +1,7 @@
 /// <summary>
 /// Represent direction of movement.
 /// </summary>
-public enum MoveDirection
+public enum FaceDirection
 {
     Left,
     Right,

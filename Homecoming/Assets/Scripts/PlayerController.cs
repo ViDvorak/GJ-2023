@@ -129,5 +129,5 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     /// <param name="items">Specified items.</param>
     public bool HasItems(Item items)
-        => (this.items & items) > Item.None;
+        => ((this.items & items) > Item.None) || items == Item.None;
 }
