@@ -9,8 +9,16 @@ public class PlayerController : MonoBehaviour
     /// Contain input actions for controlling the player.
     /// </summary>
     private PlayerInputActions playerInputActions;
+    public PlayerInputActions PlayerInputActions {  get { return playerInputActions; } }
+
+
     private new Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
+    private Collider2D colliderComponent;
+
+
+    private bool isPlayerHidden = false;
+    public bool IsPlayerHidden { get { return isPlayerHidden; } }
     /// <summary>
     /// Flags bitset which contains player items.
     /// </summary>
@@ -27,7 +35,8 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         playerInputActions = new PlayerInputActions();
-
+        
+        colliderComponent = GetComponent<Collider2D>();
         playerInputActions.Enable();
     }
 
@@ -45,20 +54,20 @@ public class PlayerController : MonoBehaviour
 
     public void Hide(GameObject objectToHideIn)
     {
-        if ((objectToHideIn.transform.position - transform.position).magnitude < MaxDistanceToHide)
-        {
-            spriteRenderer.enabled = !spriteRenderer.enabled;
-            // forbid movement
-            if (!spriteRenderer.enabled)
-            {
-                rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        spriteRenderer.enabled = false;
+        colliderComponent.enabled = false;
+        isPlayerHidden = true;
 
-            }
-            else
-            {
-                rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-            }
-        }
+        // forbid movement
+        rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+    public void Unhide()
+    {
+        spriteRenderer.enabled = true;
+        colliderComponent.enabled = true;
+        isPlayerHidden = false;
+
+        rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     /// <summary>
