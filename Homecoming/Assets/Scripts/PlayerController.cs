@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Hide(GameObject objectToHideIn)
+    public void Hide()
     {
         playerSpriteGameObject.SetActive(false);
         colliderComponent.enabled = false;
@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour
         // forbid movement
         rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
     }
+
     public void Unhide()
     {
         playerSpriteGameObject.SetActive(true);

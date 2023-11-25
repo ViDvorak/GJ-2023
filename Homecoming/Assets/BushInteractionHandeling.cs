@@ -1,16 +1,13 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class BushInteractionHandeling : MonoBehaviour
 {
     private PlayerController playerController;
-    private bool isIntersectingHidableObject = false;
-
-    [Min(0)]public float HideInteractionPeriod = 0.5f;
     private float timeOfNextInteraction;
+    private int bushCouner = 0;
+
+    [Min(0)]
+    public float HideInteractionPeriod = 0.5f;
 
     public void Awake()
     {
@@ -27,19 +24,19 @@ public class BushInteractionHandeling : MonoBehaviour
             timeOfNextInteraction = Time.time + HideInteractionPeriod;
         }
 
-        if (isIntersectingHidableObject && !playerController.IsPlayerHidden && shouldInteract && timeOfNextInteraction < Time.time)
+        if (bushCouner == 1 && !playerController.IsPlayerHidden && shouldInteract && timeOfNextInteraction < Time.time)
         {
-            playerController.Hide(gameObject);
+            playerController.Hide();
         }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        isIntersectingHidableObject = true;
+        bushCouner++;
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        isIntersectingHidableObject = false;
+        bushCouner--;
     }
 }
