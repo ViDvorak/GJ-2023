@@ -24,7 +24,7 @@ public class BushInteractionHandeling : MonoBehaviour
             timeOfNextInteraction = Time.time + HideInteractionPeriod;
         }
 
-        if (bushCouner == 1 && !playerController.IsPlayerHidden && shouldInteract && timeOfNextInteraction < Time.time)
+        if (bushCouner >= 1 && !playerController.IsPlayerHidden && shouldInteract && timeOfNextInteraction < Time.time)
         {
             playerController.Hide();
         }
