@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         playerInputActions = new PlayerInputActions();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
+        playerScale = transform.localScale;
+
         
         colliderComponent = GetComponent<Collider2D>();
         playerInputActions.Enable();

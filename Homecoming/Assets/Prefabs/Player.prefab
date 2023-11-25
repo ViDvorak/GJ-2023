@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 7728965028162430833}
   - component: {fileID: 9114563414407354280}
   - component: {fileID: 6672246733548446177}
+  - component: {fileID: -2366733819623930291}
   - component: {fileID: 5876811674755268698}
   m_Layer: 0
   m_Name: Player
@@ -196,6 +197,12 @@ CapsuleCollider2D:
   m_Offset: {x: 0.000015711876, y: 0.30075136}
   m_Size: {x: 0.8989861, y: 0.453898}
   m_Direction: 1
+--- !u!210 &-2366733819623930291
+SortingGroup:
+  m_SortingLayerID: 480431139
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!114 &5876811674755268698
 MonoBehaviour:
   m_ObjectHideFlags: 0
