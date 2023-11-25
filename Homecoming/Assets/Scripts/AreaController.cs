@@ -15,31 +15,35 @@ public class AreaController : MonoBehaviour
     /// Prefab used for top and bottom area colliders.
     /// </summary>
     public GameObject AreaColliderPrefab;
+    public float VerticalOffset;
+    public bool CollidersVisible;
 
     private void Awake()
     {
         GameObject topCollider = SpawnHorizontalCollider();
         topCollider.transform.localPosition = new Vector3()
         {
-            y = -AreaSize.y / 2.0f - colliderThickness / 2.0f,
+            y = -AreaSize.y / 2.0f - colliderThickness / 2.0f + VerticalOffset,
         };
 
         GameObject bottomCollider = SpawnHorizontalCollider();
         bottomCollider.transform.localPosition = new Vector3()
         {
-            y = +AreaSize.y / 2.0f + colliderThickness / 2.0f,
+            y = +AreaSize.y / 2.0f + colliderThickness / 2.0f + VerticalOffset,
         };
 
         GameObject leftCollider = SpawnVerticalCollider();
         leftCollider.transform.localPosition = new Vector3()
         {
             x = -AreaSize.x / 2.0f - colliderThickness / 2.0f,
+            y = VerticalOffset,
         };
 
         GameObject rightCollider = SpawnVerticalCollider();
         rightCollider.transform.localPosition = new Vector3()
         {
             x = +AreaSize.x / 2.0f + colliderThickness / 2.0f,
+            y = VerticalOffset
         };
     }
 
@@ -57,6 +61,7 @@ public class AreaController : MonoBehaviour
             z = 1.0f
         };
         collider.GetComponent<BoxCollider2D>().size = new Vector2(AreaSize.y, colliderThickness);
+        collider.transform.Find("Square").gameObject.SetActive(CollidersVisible);
 
         return collider;
     }
@@ -75,6 +80,7 @@ public class AreaController : MonoBehaviour
             z = 1.0f
         };
         collider.GetComponent<BoxCollider2D>().size = new Vector2(colliderThickness, AreaSize.y);
+        collider.transform.Find("Square").gameObject.SetActive(CollidersVisible);
 
         return collider;
     }

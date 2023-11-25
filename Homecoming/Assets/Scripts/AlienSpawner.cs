@@ -36,6 +36,7 @@ public class AlienSpawner : MonoBehaviour
     private void Update()
     {
         Rect area = new(-AreaController.AreaSize / 2.0f, AreaController.AreaSize);
+        area.y += AreaController.VerticalOffset;
 
         for (int i = 0; i < alienList.Count; i++)
         {
@@ -63,7 +64,6 @@ public class AlienSpawner : MonoBehaviour
         if (spawnInMap)
         {
             spawnPosition = (AreaController.AreaSize * new Vector2(UnityRandom.value, UnityRandom.value));
-               
         }
         else
         {
@@ -78,6 +78,7 @@ public class AlienSpawner : MonoBehaviour
             };
         }
         spawnPosition -= AreaController.AreaSize / 2.0f;
+        spawnPosition.y += AreaController.VerticalOffset;
 
         alien.transform.localPosition = spawnPosition;
         alien.GetComponent<AlienController>().MovementDirection = direction;
