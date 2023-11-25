@@ -10,11 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4452191265666232688, guid: b634d9046fa363843869993229e8707d, type: 3}
       propertyPath: m_Size.x
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4452191265666232688, guid: b634d9046fa363843869993229e8707d, type: 3}
       propertyPath: m_Size.y
-      value: 0.5
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452191265666232688, guid: b634d9046fa363843869993229e8707d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 4785043612140160630, guid: b634d9046fa363843869993229e8707d, type: 3}
       propertyPath: m_Sprite
@@ -22,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 3a91e270294070c4f9ed60bc63dabacd, type: 3}
     - target: {fileID: 5973911920523184774, guid: b634d9046fa363843869993229e8707d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5973911920523184774, guid: b634d9046fa363843869993229e8707d, type: 3}
       propertyPath: m_LocalPosition.y
