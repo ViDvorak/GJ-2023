@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 500
+  MaxDistanceToHide: 4
 --- !u!50 &9114563414407354280
 Rigidbody2D:
   serializedVersion: 4

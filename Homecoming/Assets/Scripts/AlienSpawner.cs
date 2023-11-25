@@ -15,14 +15,11 @@ public class AlienSpawner : MonoBehaviour
     /// </summary>
     private readonly List<GameObject> alienList = new();
 
+    public AreaController AreaController;
     /// <summary>
     /// Number of aliens to spawn. CHANGES DURING RUNTIME WILL NOT TAKE EFFECT.
     /// </summary>
     public int AlienCount;
-    /// <summary>
-    /// Size of the area in which will be aliens (re)spawned. Area center is (0,0).
-    /// </summary>
-    public Vector2 AreaSize;
     /// <summary>
     /// Prefab of alien to spawn.
     /// </summary>
@@ -38,7 +35,7 @@ public class AlienSpawner : MonoBehaviour
 
     private void Update()
     {
-        Rect area = new(-AreaSize / 2.0f, AreaSize);
+        Rect area = new(-AreaController.AreaSize / 2.0f, AreaController.AreaSize);
 
         for (int i = 0; i < alienList.Count; i++)
         {
@@ -65,7 +62,7 @@ public class AlienSpawner : MonoBehaviour
         Vector2 spawnPosition;
         if (spawnInMap)
         {
-            spawnPosition = (AreaSize * new Vector2(UnityRandom.value, UnityRandom.value));
+            spawnPosition = (AreaController.AreaSize * new Vector2(UnityRandom.value, UnityRandom.value));
                
         }
         else
@@ -76,11 +73,11 @@ public class AlienSpawner : MonoBehaviour
                  * We need to offset the spawn otherwise alien will get immediatly despawned, because it is outside
                  * spawn area (Rect.Contains returns falls for border points). 
                  */
-                x = direction == MoveDirection.Right ? 1.0f : AreaSize.x - 1.0f,
-                y = UnityRandom.value * AreaSize.y,
+                x = direction == MoveDirection.Right ? 1.0f : AreaController.AreaSize.x - 1.0f,
+                y = UnityRandom.value * AreaController.AreaSize.y,
             };
         }
-        spawnPosition -= AreaSize / 2.0f;
+        spawnPosition -= AreaController.AreaSize / 2.0f;
 
         alien.transform.localPosition = spawnPosition;
         alien.GetComponent<AlienController>().MovementDirection = direction;
