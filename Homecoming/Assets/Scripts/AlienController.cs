@@ -18,9 +18,13 @@ public class AlienController : MonoBehaviour
     /// </summary>
     public float MovementSpeed;
 
-    private void Awake()
+    private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+
+        Vector3 scale = transform.localScale;
+        scale.x *= MovementDirection == MoveDirection.Left ? 1.0f : -1.0f;
+        transform.localScale = scale;
     }
 
     private void Update()
