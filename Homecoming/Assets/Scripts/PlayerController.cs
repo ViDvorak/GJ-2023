@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject playerSpriteGameObject;
 
+    #region Movement/Idle game objects
     private GameObject playerMovementSprites;
     private GameObject playerIdleSprites;
 
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private GameObject playerIdleHatGameObject;
     private GameObject playerIdleScarfGameObject;
     private GameObject playerIdleLeafGameObject;
+    #endregion
 
     /// <summary>
     /// Speed of the player movement.
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerScale = transform.localScale;
 
+        #region Find and setup of Movement/Idle game objects
         playerMovementSprites = transform.Find("Movement Sprites").gameObject;
         playerIdleSprites = transform.Find("Idle Sprites").gameObject;
 
@@ -68,7 +71,8 @@ public class PlayerController : MonoBehaviour
         playerMovementScarfGameObject.GetComponent<Animator>().keepAnimatorStateOnDisable = true;
         playerMovementLeafRightGameObject.GetComponent<Animator>().keepAnimatorStateOnDisable = true;
         playerMovementLeafLeftGameObject.GetComponent<Animator>().keepAnimatorStateOnDisable = true;
-        
+        #endregion
+
         colliderComponent = GetComponent<Collider2D>();
         playerInputActions.Enable();
     }
@@ -78,26 +82,34 @@ public class PlayerController : MonoBehaviour
         if (IsPlayerHidden)
             return;
 
+        #region Item Visibility
         playerMovementHatGameObject.SetActive(GlobalGameState.HasItems(Item.Hat));
         playerIdleHatGameObject.SetActive(GlobalGameState.HasItems(Item.Hat));
         playerMovementScarfGameObject.SetActive(GlobalGameState.HasItems(Item.Scarf));
         playerIdleScarfGameObject.SetActive(GlobalGameState.HasItems(Item.Scarf));
         playerIdleLeafGameObject.SetActive(GlobalGameState.HasItems(Item.Leaf));
         leafVisible = GlobalGameState.HasItems(Item.Leaf);
+        #endregion
 
         Vector2 direction = playerInputActions.Player.Movement.ReadValue<Vector2>();
         rigidbody.AddForce(MovementSpeed * Time.deltaTime * direction);
 
         float velocity = rigidbody.velocity.magnitude;
-
         bool moving = velocity > idleThreshold && direction != Vector2.zero;
+        bool idle = !moving && direction == Vector2.zero;
 
-        playerMovementSprites.SetActive(moving);
-        playerIdleSprites.SetActive(!moving);
+        playerMovementSprites.SetActive(!idle);
+        playerIdleSprites.SetActive(idle);
+
+        if (!moving)
+        {
+            transform.localScale = playerScale;
+        }
 
         if (direction == Vector2.zero)
             return;
 
+        #region Changing face direction
         bool movingRight = direction.x >= 0.0f;
 
         float xScaleModifier = movingRight ? 1.0f : -1.0f;
@@ -112,6 +124,7 @@ public class PlayerController : MonoBehaviour
             playerMovementLeafRightGameObject.SetActive(movingRight);
             playerMovementLeafLeftGameObject.SetActive(!movingRight);
         }
+        #endregion
     }
 
     public void Hide()
