@@ -8,27 +8,26 @@ using UnityEngine.UIElements;
 public class ButtonClicker : MonoBehaviour
 {
     public Object Scene;
-    UIDocument buttonDocument;
-    Button uiStartButton;
-    Button uiQuitButton;
+
+    UIDocument buttonsDocument;
+    Button startButton;
+    Button quitButton;
 
     private void OnEnable()
     {
-        buttonDocument = GetComponent<UIDocument>();
+        buttonsDocument = GetComponent<UIDocument>();
 
-        if (buttonDocument == null)
+        if (buttonsDocument == null)
         {
-            Debug.LogError("No UI document found.");
+            Debug.LogError("No UI Document found.");
         }
 
-        uiStartButton = buttonDocument.rootVisualElement.Q("StartButton") as Button;
-        uiQuitButton = buttonDocument.rootVisualElement.Q("QuitButton") as Button;
+        startButton = buttonsDocument.rootVisualElement.Q("StartButton") as Button;
+        quitButton = buttonsDocument.rootVisualElement.Q("QuitButton") as Button;
 
-        uiStartButton.RegisterCallback<ClickEvent>(OnStartButtonClick);
-        uiQuitButton.RegisterCallback<ClickEvent>(OnQuitButtonClick);
-
+        startButton.RegisterCallback<ClickEvent>(OnStartButtonClick);
+        quitButton.RegisterCallback<ClickEvent>(OnQuitButtonClick);
     }
-
 
     void OnStartButtonClick(ClickEvent e)
     {
@@ -37,7 +36,7 @@ public class ButtonClicker : MonoBehaviour
 
     void OnQuitButtonClick(ClickEvent e)
     {
-        Time.timeScale = 1f;
+        // Time.timeScale = 1f;
 
 #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
@@ -47,9 +46,8 @@ public class ButtonClicker : MonoBehaviour
 
     }
 
-
-// Start is called before the first frame update
-void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         
     }

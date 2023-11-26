@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 91838986}
   - component: {fileID: 91838985}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MainMenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 1459016136}
   - component: {fileID: 1459016137}
   m_Layer: 5
-  m_Name: MainMenuUI
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 1555516273}
   - component: {fileID: 1555516274}
   m_Layer: 5
-  m_Name: StartButtonUI
+  m_Name: ButtonsUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
