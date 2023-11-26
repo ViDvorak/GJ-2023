@@ -78,6 +78,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (IsPlayerHidden)
+            return;
+
         Vector2 direction = playerInputActions.Player.Movement.ReadValue<Vector2>();
         rigidbody.AddForce(MovementSpeed * Time.deltaTime * direction);
 
@@ -110,6 +113,7 @@ public class PlayerController : MonoBehaviour
     public void Hide()
     {
         playerSpriteGameObject.SetActive(false);
+        playerIdleSprites.SetActive(false);
         colliderComponent.enabled = false;
         isPlayerHidden = true;
 
@@ -120,6 +124,7 @@ public class PlayerController : MonoBehaviour
     public void Unhide()
     {
         playerSpriteGameObject.SetActive(true);
+        playerIdleSprites.SetActive(true);
         colliderComponent.enabled = true;
         isPlayerHidden = false;
 

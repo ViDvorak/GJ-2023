@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class PlayerAuthenticityHandeling : MonoBehaviour
@@ -9,6 +6,9 @@ public class PlayerAuthenticityHandeling : MonoBehaviour
 
     public float aweraness = 0f;
     public float aweranessDegradationSpeed = 0.01f;
+    public CameraController Camera;
+
+    public float ShakeMagnitude;
 
     private void Update()
     {
@@ -22,6 +22,7 @@ public class PlayerAuthenticityHandeling : MonoBehaviour
         if (collision.gameObject.tag == "AlienDetection")
         {
             aweraness += collision.GetComponent<AlienDetectionHandeling>().AweranessIncreasSpeed * Time.deltaTime;
+            Camera.Shake(1.0f, ShakeMagnitude);
         }
     }
 }
