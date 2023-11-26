@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerAuthenticityHandeling : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PlayerAuthenticityHandeling : MonoBehaviour
 
     private void Update()
     {
+        if (aweraness > 1f)
+        {
+            SceneManager.LoadScene("DeathScreen");
+        }
         aweraness = Mathf.Clamp01(aweraness - aweranessDegradationSpeed * Time.deltaTime);
 
         authenticityMeter.SetValue(aweraness);

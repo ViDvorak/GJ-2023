@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 
 public class ButtonClicker : MonoBehaviour
 {
-    public Object Scene;
+    public string sceneName;
 
     UIDocument buttonsDocument;
     Button startButton;
@@ -35,7 +35,7 @@ public class ButtonClicker : MonoBehaviour
 
     void OnStartButtonClick(ClickEvent e)
     {
-        SceneManager.LoadScene(Scene.name);
+        SceneManager.LoadScene(sceneName);
     }
 
     void OnQuitButtonClick(ClickEvent e)
