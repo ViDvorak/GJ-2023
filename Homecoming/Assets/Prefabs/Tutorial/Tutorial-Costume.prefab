@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Make yourself to look like an alien
+  m_Text: Make yourself look like an alien
 --- !u!1001 &367234525447261618
 PrefabInstance:
   m_ObjectHideFlags: 0
