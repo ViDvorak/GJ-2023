@@ -25,7 +25,6 @@ public class AlienSpawner : MonoBehaviour
     /// Prefab of alien to spawn.
     /// </summary>
     public GameObject AlienPrefab;
-    public FaceDirection FaceDirection;
 
     private void Start()
     {
@@ -48,10 +47,6 @@ public class AlienSpawner : MonoBehaviour
         splineAnimate.StartOffset = UnityRandom.value;
         splineAnimate.Container = spline;
         splineAnimate.Loop = LoopMode.Loop;
-
-        Vector3 scale = alien.transform.localScale;
-        scale.x = FaceDirection == FaceDirection.Left ? 1.0f : -1.0f;
-        alien.transform.localScale = scale;
 
         return alien;
     }
