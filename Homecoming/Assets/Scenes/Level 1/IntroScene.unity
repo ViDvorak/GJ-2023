@@ -483,6 +483,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1555699337}
     - target: {fileID: 2698467231792395992, guid: 94fdc0d13e92b9540972b0001560a437, type: 3}
+      propertyPath: MaxShakeMagnitude
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2698467231792395992, guid: 94fdc0d13e92b9540972b0001560a437, type: 3}
       propertyPath: authenticityMeter
       value: 
       objectReference: {fileID: 1116974521}
