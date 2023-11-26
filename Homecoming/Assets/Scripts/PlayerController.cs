@@ -21,10 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isPlayerHidden = false;
     public bool IsPlayerHidden { get { return isPlayerHidden; } }
-    /// <summary>
-    /// Flags bitset which contains player items.
-    /// </summary>
-    private Item items = Item.None;
+    
     private Vector3 playerScale;
     private bool leafVisible = false;
 
@@ -81,6 +78,13 @@ public class PlayerController : MonoBehaviour
         if (IsPlayerHidden)
             return;
 
+        playerMovementHatGameObject.SetActive(GlobalGameState.HasItems(Item.Hat));
+        playerIdleHatGameObject.SetActive(GlobalGameState.HasItems(Item.Hat));
+        playerMovementScarfGameObject.SetActive(GlobalGameState.HasItems(Item.Scarf));
+        playerIdleScarfGameObject.SetActive(GlobalGameState.HasItems(Item.Scarf));
+        playerIdleLeafGameObject.SetActive(GlobalGameState.HasItems(Item.Leaf));
+        leafVisible = GlobalGameState.HasItems(Item.Leaf);
+
         Vector2 direction = playerInputActions.Player.Movement.ReadValue<Vector2>();
         rigidbody.AddForce(MovementSpeed * Time.deltaTime * direction);
 
@@ -130,38 +134,4 @@ public class PlayerController : MonoBehaviour
 
         rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
-
-    /// <summary>
-    /// Pick up an item.
-    /// </summary>
-    /// <param name="item">item to pick up.</param>
-    public void PickUpItem(Item item)
-    {
-        Debug.Assert(!HasItems(item));
-
-        items |= item;
-
-        switch (item)
-        {
-            case Item.Hat:
-                playerMovementHatGameObject.SetActive(true);
-                playerIdleHatGameObject.SetActive(true);
-                break;
-            case Item.Scarf:
-                playerMovementScarfGameObject.SetActive(true);
-                playerIdleScarfGameObject.SetActive(true);
-                break;
-            case Item.Leaf:
-                leafVisible = true;
-                playerIdleLeafGameObject.SetActive(true);
-                break;
-        }
-    }
-
-    /// <summary>
-    /// Determine if player has specified items.
-    /// </summary>
-    /// <param name="items">Specified items.</param>
-    public bool HasItems(Item items)
-        => ((this.items & items) > Item.None) || items == Item.None;
 }

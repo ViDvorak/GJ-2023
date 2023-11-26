@@ -45,7 +45,7 @@ public class ItemController : MonoBehaviour
 
         if (playerInputActions.Player.Interaction.IsPressed())
         {
-            playerController.PickUpItem(Item);
+            GlobalGameState.PickUpItem(Item);
             Destroy(gameObject);
         }
     }
