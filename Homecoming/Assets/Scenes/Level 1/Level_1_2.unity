@@ -30509,8 +30509,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1801897743343636236, guid: 7d6672fba20aac1419456af7c96b3838, type: 3}
       propertyPath: Scene
-      value: 
-      objectReference: {fileID: 102900000, guid: ea09b2b8c88e79e46a33167c3eb1058c, type: 3}
+      value: BusScene
+      objectReference: {fileID: 0}
     - target: {fileID: 1801897743343636236, guid: 7d6672fba20aac1419456af7c96b3838, type: 3}
       propertyPath: RequiredItems
       value: 7

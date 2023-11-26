@@ -145,8 +145,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1801897743343636236, guid: 7d6672fba20aac1419456af7c96b3838, type: 3}
       propertyPath: Scene
-      value: 
-      objectReference: {fileID: 102900000, guid: e6703a848f1fc69418c1d0ab961fafd1, type: 3}
+      value: AirportEnd
+      objectReference: {fileID: 0}
     - target: {fileID: 1801897743343636236, guid: 7d6672fba20aac1419456af7c96b3838, type: 3}
       propertyPath: RequiredItems
       value: 8

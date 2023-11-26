@@ -16,7 +16,7 @@ public class SceneChangerController : MonoBehaviour
     /// Scene which will become active upon entering scene changer area. Scene needs to be included in build settings
     /// (file -> build settings).
     /// </summary>
-    public Object Scene;
+    public string Scene;
     /// <summary>
     /// Items required in order to change the scene.
     /// </summary>
@@ -70,7 +70,7 @@ public class SceneChangerController : MonoBehaviour
 
         if (playerInputActions.Player.Interaction.IsPressed() && hasItems)
         {
-            SceneManager.LoadScene(Scene.name);
+            SceneManager.LoadScene(Scene);
         }
     }
 }

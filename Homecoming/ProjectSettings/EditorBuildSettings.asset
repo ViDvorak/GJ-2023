@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 2/AirportEnd.unity
     guid: e6703a848f1fc69418c1d0ab961fafd1
+  - enabled: 1
+    path: Assets/Scenes/Menus/WinScreen.unity
+    guid: a77b6f969b94ee044b5668fed598cfb9
+  - enabled: 1
+    path: Assets/Scenes/Menus/DeathScreen.unity
+    guid: 0d927f5708c8a2647872c8a4939cee9b
   m_configObjects: {}

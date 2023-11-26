@@ -29,7 +29,7 @@ public class BusController : MonoBehaviour
     /// Scene which will become active when bus leaves current scene. Scene needs to be included in build settings
     /// (file -> build settings).
     /// </summary>
-    public Object Scene;
+    public string Scene;
     /// <summary>
     /// Controller of main camera.
     /// </summary>
@@ -57,7 +57,7 @@ public class BusController : MonoBehaviour
 
         if (!spriteRenderer.isVisible)
         {
-            SceneManager.LoadScene(Scene.name);
+            SceneManager.LoadScene(Scene);
         }
     }
 
