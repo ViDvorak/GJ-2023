@@ -26,6 +26,14 @@ public static class GlobalGameState
         Debug.Log("first:");
         Debug.Log((~(playerItems & items) & items));
 
-        return ((~(playerItems & items) & items) == Item.None) || items == Item.None;
+        Item foo = playerItems & items;
+        foo = ~foo;
+        foo = foo & items;
+
+        bool success = foo == Item.None;
+
+        Debug.Log(success);
+
+        return success || items == Item.None;
     }
 }
