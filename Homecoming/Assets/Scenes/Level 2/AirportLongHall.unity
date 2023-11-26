@@ -7952,7 +7952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8551700102667186974, guid: 52f6ca38d4d58ca409456e1b8852c118, type: 3}
       propertyPath: AlienCount
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8551700102667186974, guid: 52f6ca38d4d58ca409456e1b8852c118, type: 3}
       propertyPath: AlienPrefab

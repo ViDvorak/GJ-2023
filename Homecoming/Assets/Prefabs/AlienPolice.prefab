@@ -126,7 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6655198284509985022, guid: 9613e1c7292f96443a6a1adcddf32fe1, type: 3}
       propertyPath: minAweranesIncreasSpeed
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7847107806846291038, guid: 9613e1c7292f96443a6a1adcddf32fe1, type: 3}
       propertyPath: m_LocalPosition.x

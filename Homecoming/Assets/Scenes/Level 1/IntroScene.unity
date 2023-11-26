@@ -24965,6 +24965,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8551700102667186974, guid: 52f6ca38d4d58ca409456e1b8852c118, type: 3}
+      propertyPath: AlienCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551700102667186974, guid: 52f6ca38d4d58ca409456e1b8852c118, type: 3}
       propertyPath: FaceDirection
       value: 0
       objectReference: {fileID: 0}
@@ -46241,6 +46245,10 @@ PrefabInstance:
     - target: {fileID: 7483196923063210437, guid: 52f6ca38d4d58ca409456e1b8852c118, type: 3}
       propertyPath: m_Splines.Array.data[4].m_MetaData.Array.data[11].m_DistanceToInterpolation.Array.data[29].Distance
       value: 1.5939107
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551700102667186974, guid: 52f6ca38d4d58ca409456e1b8852c118, type: 3}
+      propertyPath: AlienCount
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8551700102667186974, guid: 52f6ca38d4d58ca409456e1b8852c118, type: 3}
       propertyPath: FaceDirection
