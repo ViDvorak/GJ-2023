@@ -23,16 +23,11 @@ public static class GlobalGameState
     /// <param name="items">Specified items.</param>
     public static bool HasItems(Item items)
     {
-        Debug.Log("first:");
-        Debug.Log((~(playerItems & items) & items));
-
         Item foo = playerItems & items;
         foo = ~foo;
         foo = foo & items;
 
         bool success = foo == Item.None;
-
-        Debug.Log(success);
 
         return success || items == Item.None;
     }
