@@ -458,7 +458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f17b05dfee3414f9c1323972e06f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AweranessIncreasSpeed: 0.5
+  ItemsLoweringAweraness: 010000000200000004000000
+  aweranessIncreasSpeed: 0.8
+  minAweranesIncreasSpeed: 0.3
 --- !u!70 &2609938300477542203
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
