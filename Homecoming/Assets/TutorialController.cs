@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,6 +30,9 @@ public class TutorialController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.GetComponent<PlayerController>() == null)
+            return;
+
         Time.timeScale = 0f;
         tutorialCanvas.SetActive(true);
         StartCoroutine(ShowText());
@@ -44,7 +47,7 @@ public class TutorialController : MonoBehaviour
 
     private IEnumerator ShowText()
     {
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(2);
         text.enabled = true;
         canExit = true;
     }
