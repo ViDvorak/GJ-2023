@@ -8,6 +8,8 @@ public class PlayerAuthenticityHandeling : MonoBehaviour
     public float aweranessDegradationSpeed = 0.01f;
     public CameraController Camera;
 
+    public float ShakeMagnitude;
+
     private void Update()
     {
         aweraness = Mathf.Clamp01(aweraness - aweranessDegradationSpeed * Time.deltaTime);
@@ -20,7 +22,7 @@ public class PlayerAuthenticityHandeling : MonoBehaviour
         if (collision.gameObject.tag == "AlienDetection")
         {
             aweraness += collision.GetComponent<AlienDetectionHandeling>().AweranessIncreasSpeed * Time.deltaTime;
-            Camera.Shake(1.0f, 0.05f);
+            Camera.Shake(1.0f, ShakeMagnitude);
         }
     }
 }
