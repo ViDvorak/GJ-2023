@@ -1247,4 +1247,4 @@ MonoBehaviour:
   aweraness: 0
   aweranessDegradationSpeed: 0.1
   Camera: {fileID: 0}
-  ShakeMagnitude: 0.05
+  MaxShakeMagnitude: 0.05
