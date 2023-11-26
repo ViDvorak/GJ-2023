@@ -15,6 +15,7 @@ public class BusController : MonoBehaviour
     /// Sprite renderer of bus texture.
     /// </summary>
     private SpriteRenderer spriteRenderer;
+    private GameObject tooltipText;
 
     /// <summary>
     /// Bus movement speed.
@@ -41,6 +42,7 @@ public class BusController : MonoBehaviour
     private void Start()
     {
         spriteRenderer = transform.parent.Find("Texture").GetComponent<SpriteRenderer>();
+        tooltipText = transform.parent.Find("Tooltip Text").gameObject;
 
         playerInputActions = new PlayerInputActions();
         playerInputActions.Enable();
@@ -59,10 +61,24 @@ public class BusController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerController>() == null)
+            return;
+
+        tooltipText.SetActive(true);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerController>() == null)
+            return;
+
+        tooltipText.SetActive(false);
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        // TODO: show tooltip "Press E to enter the bus."
-
         PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
 
         if (playerController == null)
