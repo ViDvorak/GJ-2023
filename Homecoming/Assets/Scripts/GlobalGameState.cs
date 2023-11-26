@@ -1,3 +1,5 @@
+using Packages.Rider.Editor.UnitTesting;
+using UnityEditor.Search;
 using UnityEngine;
 
 public static class GlobalGameState
@@ -6,6 +8,8 @@ public static class GlobalGameState
     /// Flags bitset which contains player's items.
     /// </summary>
     private static Item playerItems = Item.None;
+
+    public static Item PlayerItems { get { return playerItems; } }
 
     public static void PickUpItem(Item item)
     {
