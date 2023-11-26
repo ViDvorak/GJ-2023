@@ -197,8 +197,9 @@ GameObject:
   - component: {fileID: 4820884424965481935}
   - component: {fileID: 7597292567108591485}
   - component: {fileID: 1613330512058795283}
+  - component: {fileID: 2986868995049146992}
   m_Layer: 0
-  m_Name: Item
+  m_Name: ItemTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,4 +296,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8df35b46b939e84daf5b750de709504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: 1
+  Item: 0
+--- !u!210 &2986868995049146992
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2370199350783582934}
+  m_Enabled: 1
+  m_SortingLayerID: 480431139
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
