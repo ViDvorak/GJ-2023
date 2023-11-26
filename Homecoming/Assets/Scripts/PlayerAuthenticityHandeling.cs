@@ -10,7 +10,7 @@ public class PlayerAuthenticityHandeling : MonoBehaviour
 
     public float MaxShakeMagnitude;
 
-    private async void Update()
+    private void Update()
     {
         aweraness = Mathf.Clamp01(aweraness - aweranessDegradationSpeed * Time.deltaTime);
 

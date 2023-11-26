@@ -8,5 +8,5 @@ public enum Item
     Leaf    = 0x02,
     Hat     = 0x04,
     Ticket  = 0x08,
-    Money   = 0x20,
+    Money   = 0x10,
 }

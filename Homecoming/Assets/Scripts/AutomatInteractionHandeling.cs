@@ -33,8 +33,6 @@ public class AutomatInteractionHandeling : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"global State {GlobalGameState.PlayerItems}");
-
         isIntersectingWithTicketMachine = true;
         if (isInteractable && !GlobalGameState.HasItems(Item.Ticket))
         {
