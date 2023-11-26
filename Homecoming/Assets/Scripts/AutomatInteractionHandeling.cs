@@ -9,9 +9,9 @@ using UnityEngine.UI;
 public class AutomatInteractionHandeling : MonoBehaviour
 {
     public bool isInteractable = false;
-    public bool isIntersectingWithTicketMachine = false;
     public GameObject text;
 
+    private bool isIntersectingWithTicketMachine = false;
     PlayerInputActions input;
     TextMesh textComponent;
 
@@ -45,7 +45,7 @@ public class AutomatInteractionHandeling : MonoBehaviour
             }
             else
             {
-                textComponent.text = "You do not have any money to buy a ticket";
+                textComponent.text = "You do not have any money\nto buy a ticket";
             }
 
         }
