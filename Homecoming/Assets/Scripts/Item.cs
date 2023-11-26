@@ -7,4 +7,5 @@ public enum Item
     Scarf = 0x01,
     Leaf  = 0x02,
     Hat   = 0x04,
+    Ticket   = 0x08,
 }

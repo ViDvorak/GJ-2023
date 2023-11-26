@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 /// <summary>
@@ -146,5 +147,11 @@ public class PlayerController : MonoBehaviour
         isPlayerHidden = false;
 
         rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    public int AddItem(Item item)
+    {
+        GlobalGameState.PickUpItem(item);
+        return 0;
     }
 }
