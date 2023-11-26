@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class ButtonClicker : MonoBehaviour
 {
-
+    public Object Scene;
     UIDocument buttonDocument;
-    Button uiButton;
+    Button uiStartButton;
+    Button uiQuitButton;
 
     private void OnEnable()
     {
@@ -18,20 +21,35 @@ public class ButtonClicker : MonoBehaviour
             Debug.LogError("No UI document found.");
         }
 
-        uiButton = buttonDocument.rootVisualElement.Q("StartButton") as Button;
+        uiStartButton = buttonDocument.rootVisualElement.Q("StartButton") as Button;
+        uiQuitButton = buttonDocument.rootVisualElement.Q("QuitButton") as Button;
 
-        uiButton.RegisterCallback<ClickEvent>(OnButtonClick);
+        uiStartButton.RegisterCallback<ClickEvent>(OnStartButtonClick);
+        uiQuitButton.RegisterCallback<ClickEvent>(OnQuitButtonClick);
 
     }
 
 
-    void OnButtonClick(ClickEvent e)
+    void OnStartButtonClick(ClickEvent e)
     {
-        Debug.Log("hi");
+        SceneManager.LoadScene(Scene.name);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void OnQuitButtonClick(ClickEvent e)
+    {
+        Time.timeScale = 1f;
+
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
+	    Application.Quit();
+#endif
+
+    }
+
+
+// Start is called before the first frame update
+void Start()
     {
         
     }
