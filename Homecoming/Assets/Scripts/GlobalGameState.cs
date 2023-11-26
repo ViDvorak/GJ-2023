@@ -22,5 +22,18 @@ public static class GlobalGameState
     /// </summary>
     /// <param name="items">Specified items.</param>
     public static bool HasItems(Item items)
-        => ((playerItems & items) > Item.None) || items == Item.None;
+    {
+        Debug.Log("first:");
+        Debug.Log((~(playerItems & items) & items));
+
+        Item foo = playerItems & items;
+        foo = ~foo;
+        foo = foo & items;
+
+        bool success = foo == Item.None;
+
+        Debug.Log(success);
+
+        return success || items == Item.None;
+    }
 }
