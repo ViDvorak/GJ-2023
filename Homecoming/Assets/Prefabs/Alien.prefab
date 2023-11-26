@@ -459,8 +459,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemsLoweringAweraness: 010000000200000004000000
-  aweranessIncreasSpeed: 0.8
-  minAweranesIncreasSpeed: 0.3
+  aweranessIncreasSpeed: 0.5
+  minAweranesIncreasSpeed: 0
 --- !u!70 &2609938300477542203
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
