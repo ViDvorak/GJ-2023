@@ -35,13 +35,8 @@ public class ItemController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-
-        if (playerController == null)
+        if (collision.gameObject.GetComponent<PlayerController>() == null)
             return;
-
-        // TODO: show press 'E' to pick up item message
-
 
         if (playerInputActions.Player.Interaction.IsPressed())
         {
