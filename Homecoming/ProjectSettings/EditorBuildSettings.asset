@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 2/AirportHall.unity
     guid: 26fdc97f426b7df489bb7eb12f76ec9d
+  - enabled: 1
+    path: Assets/Scenes/Level 2/AirportLongHall.unity
+    guid: bd1d7fd9661702e468f015120a2b495e
   m_configObjects: {}
